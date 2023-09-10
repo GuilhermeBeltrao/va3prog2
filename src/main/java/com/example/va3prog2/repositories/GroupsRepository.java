@@ -1,6 +1,7 @@
 package com.example.va3prog2.repositories;
 
 import com.example.va3prog2.models.Group;
+import com.example.va3prog2.models.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +10,7 @@ public class GroupsRepository {
     private static GroupsRepository instance;
     private List<Group> groups;
 
-    private GroupsRepository() {
+    public GroupsRepository() {
         groups = new ArrayList<>();
     }
 
@@ -26,5 +27,43 @@ public class GroupsRepository {
 
     public List<Group> getAllGroups() {
         return groups;
+    }
+
+    public void listGroups() {
+        for (Group group : groups) {
+            System.out.println(group.getName());
+        }
+    }
+
+    public boolean addUserToGroup(String selectedGroup, User user) {
+        Group group = findGroupByName(selectedGroup);
+
+        if (group != null) {
+            if (!group.getUsers().contains(user)) {
+                group.getUsers().add(user);
+                return true; // User added successfully
+            } else {
+                return false; // User is already in the group
+            }
+        } else {
+            return false;
+        }
+    }
+
+    private Group findGroupByName(String selectedGroup) {
+        for (Group group : groups) {
+            if (group.getName().equals(selectedGroup)) {
+                return group;
+            }
+        }
+        return null;
+    }
+
+    public List<String> getAllGroupNames() {
+        List<String> groupNames = new ArrayList<>();
+        for (Group group : groups) {
+            groupNames.add(group.getName());
+        }
+        return groupNames;
     }
 }

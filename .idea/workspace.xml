@@ -5,31 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b012180e-5e06-4be5-ae6b-a88eb4ae548a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/va3prog2/MainApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/va3prog2/controllers/GiveawayController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/va3prog2/controllers/GroupController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/va3prog2/controllers/MainController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/va3prog2/controllers/UserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/va3prog2/models/Group.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/va3prog2/models/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/va3prog2/repositories/GroupsRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/va3prog2/repositories/UsersRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/va3prog2/giveawayPage.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/va3prog2/groupPage.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/va3prog2/registerPage.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/va3prog2/showusers.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/va3prog2/welcomePage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/va3prog2/controllers/GiftController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/va3prog2/controllers/GiftController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/va3prog2/controllers/GiveawayController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/va3prog2/controllers/GiveawayController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/va3prog2/controllers/GroupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/va3prog2/controllers/GroupController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/va3prog2/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/va3prog2/controllers/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/va3prog2/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/va3prog2/controllers/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/va3prog2/models/Group.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/va3prog2/models/Group.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/va3prog2/repositories/GroupsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/va3prog2/repositories/GroupsRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/va3prog2/repositories/UsersRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/va3prog2/repositories/UsersRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/va3prog2/giftsPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/va3prog2/giftsPage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/va3prog2/giveawayPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/va3prog2/giveawayPage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/va3prog2/groupPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/va3prog2/groupPage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/va3prog2/registerPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/va3prog2/registerPage.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +56,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "main",
     "last_opened_file_path": "/home/guilhermebeltrao/Documents/va3Prog2/src/main/java/com/example/va3prog2",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -83,6 +71,26 @@
       <recent name="$PROJECT_DIR$/src/main/resources/com/example/va3prog2" />
     </key>
   </component>
+  <component name="RunManager">
+    <configuration name="MainApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.va3prog2.MainApplication" />
+      <module name="va3Prog2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.va3prog2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.MainApplication" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -91,7 +99,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1694368360987</updated>
-      <workItem from="1694368362418" duration="5066000" />
+      <workItem from="1694368362418" duration="11342000" />
     </task>
     <servers />
   </component>

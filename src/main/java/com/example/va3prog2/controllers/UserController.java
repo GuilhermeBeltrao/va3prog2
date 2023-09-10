@@ -1,12 +1,19 @@
 package com.example.va3prog2.controllers;
 
+import com.example.va3prog2.MainApplication;
 import com.example.va3prog2.models.User;
 import com.example.va3prog2.repositories.UsersRepository;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 
 public class UserController {
@@ -21,7 +28,7 @@ public class UserController {
     private UsersRepository usersRepository;
 
     public UserController() {
-        this.usersRepository = new UsersRepository();
+        this.usersRepository = UsersRepository.getInstance();
     }
 
     public void registerUser(ActionEvent actionEvent) {
@@ -48,5 +55,31 @@ public class UserController {
         alert.setHeaderText(null);
         alert.setContentText(message);
         alert.showAndWait();
+    }
+
+    public void loadRegister (ActionEvent event) throws IOException {
+        changeScene("registerPage.fxml", event);
+
+    }
+
+    public void loadGroups (ActionEvent event) throws IOException {
+        changeScene("groupPage.fxml", event);
+    }
+
+    public void loadGiveaway (ActionEvent event) throws IOException {
+        changeScene("giveawayPage.fxml", event);
+    }
+
+    public void loadListUsers (ActionEvent event) throws IOException {
+        changeScene("giftsPage.fxml", event);
+    }
+
+    private void changeScene(String fxmlFile, ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource(fxmlFile));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setScene(scene);
+        stage.setResizable(false);
+        stage.show();
     }
 }

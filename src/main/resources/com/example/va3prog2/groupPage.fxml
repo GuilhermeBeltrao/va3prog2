@@ -14,7 +14,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-border-color: black;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.va3prog2.controllers.MainController">
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ComboBox?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-border-color: black;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.va3prog2.controllers.GroupController">
     <children>
         <VBox prefHeight="400.0" prefWidth="192.0" spacing="20.0" style="-fx-border-color: black;">
             <children>
@@ -27,60 +33,70 @@
                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
             </padding>
         </VBox>
-      <TabPane layoutX="192.0" prefHeight="400.0" prefWidth="407.0" tabClosingPolicy="UNAVAILABLE">
-        <tabs>
-          <Tab closable="false" text="Cadastro de grupos">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <GridPane alignment="CENTER" hgap="20.0" layoutX="33.0" layoutY="141.0" prefHeight="90.0" prefWidth="341.0">
-                          <columnConstraints>
-                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="159.0" minWidth="10.0" prefWidth="159.0" />
-                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="166.0" minWidth="10.0" prefWidth="162.0" />
-                          </columnConstraints>
-                          <rowConstraints>
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                          </rowConstraints>
-                           <children>
-                              <Label contentDisplay="CENTER" text="Digite o nome do grupo:" textAlignment="CENTER" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
-                                 <GridPane.margin>
-                                    <Insets />
-                                 </GridPane.margin>
-                                 <font>
-                                    <Font size="13.0" />
-                                 </font>
-                              </Label>
-                              <Label text="Escolha a data do sorteio:" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
-                                 <font>
-                                    <Font size="13.0" />
-                                 </font>
-                              </Label>
-                              <TextField prefHeight="25.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
-                                 <GridPane.margin>
-                                    <Insets left="5.0" right="5.0" />
-                                 </GridPane.margin>
-                              </TextField>
-                              <DatePicker GridPane.columnIndex="1" GridPane.rowIndex="1">
-                                 <GridPane.margin>
-                                    <Insets left="5.0" right="5.0" />
-                                 </GridPane.margin>
-                              </DatePicker>
-                           </children>
-                        </GridPane>
-                        <Button layoutX="312.0" layoutY="332.0" maxHeight="25.0" maxWidth="62.0" minHeight="25.0" minWidth="62.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="62.0" text="Salvar" />
-                        <Button layoutX="244.0" layoutY="332.0" mnemonicParsing="false" text="Cancelar" />
-                     </children>
-                  </AnchorPane>
-            </content>
-          </Tab>
-          <Tab closable="false" text="Usuários dos grupos">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-            </content>
-          </Tab>
-        </tabs>
-      </TabPane>
+        <TabPane layoutX="192.0" prefHeight="400.0" prefWidth="407.0" tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+                <Tab closable="false" text="Cadastro de grupos">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" >
+                            <children>
+                                <GridPane alignment="CENTER" hgap="20.0" layoutX="33.0" layoutY="141.0" prefHeight="90.0" prefWidth="341.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="159.0" minWidth="10.0" prefWidth="159.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="166.0" minWidth="10.0" prefWidth="162.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                    <children>
+                                        <Label contentDisplay="CENTER" text="Digite o nome do grupo:" textAlignment="CENTER" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
+                                            <GridPane.margin>
+                                                <Insets />
+                                            </GridPane.margin>
+                                            <font>
+                                                <Font size="13.0" />
+                                            </font>
+                                        </Label>
+                                        <Label text="Escolha a data do sorteio:" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                            <font>
+                                                <Font size="13.0" />
+                                            </font>
+                                        </Label>
+                                        <TextField fx:id="groupNameTextField" prefHeight="25.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+                                            <GridPane.margin>
+                                                <Insets left="5.0" right="5.0" />
+                                            </GridPane.margin>
+                                        </TextField>
+                                        <DatePicker fx:id="groupDatePicker" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                            <GridPane.margin>
+                                                <Insets left="5.0" right="5.0" />
+                                            </GridPane.margin>
+                                        </DatePicker>
+                                    </children>
+                                </GridPane>
+                                <Button layoutX="312.0" layoutY="332.0" maxHeight="25.0" maxWidth="62.0" minHeight="25.0" minWidth="62.0" mnemonicParsing="false" onAction="#saveGroup" prefHeight="25.0" prefWidth="62.0" text="Salvar" />
+                                <Button layoutX="244.0" layoutY="332.0" mnemonicParsing="false" text="Cancelar" />
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab closable="false" text="Usuários dos grupos">
+                    <content>
+                        <AnchorPane xmlns="http://javafx.com/javafx/17.0.2" xmlns:fx="http://javafx.com/fxml/1">
+                            <VBox spacing="10" layoutX="20" layoutY="20">
+                                <HBox spacing="10">
+                                    <TextField fx:id="nicknameField" />
+                                    <Button text="Add User" onAction="#addUserToGroup" />
+                                </HBox>
+
+                                <ListView fx:id="groupListView" prefHeight="300" />
+                            </VBox>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+
+            </tabs>
+        </TabPane>
     </children>
 </AnchorPane>

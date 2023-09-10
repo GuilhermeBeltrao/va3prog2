@@ -13,41 +13,30 @@ public class MainController {
 
 
     public void loadRegister (ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("registerPage.fxml"));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(fxmlLoader.load());
-        stage.setScene(scene);
-        stage.setResizable(false);
-        stage.show();
+        changeScene("registerPage.fxml", event);
+
     }
 
     public void loadGroups (ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("groupPage.fxml"));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(fxmlLoader.load());
-        stage.setScene(scene);
-        stage.setResizable(false);
-        stage.show();
+        changeScene("groupPage.fxml", event);
     }
 
     public void loadGiveaway (ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("giveawayPage.fxml"));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(fxmlLoader.load());
-        stage.setScene(scene);
-        stage.setResizable(false);
-        stage.show();
+        changeScene("giveawayPage.fxml", event);
     }
 
     public void loadListUsers (ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("showusers.fxml"));
+        changeScene("giftsPage.fxml", event);
+    }
+
+    private void changeScene(String fxmlFile, ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource(fxmlFile));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(fxmlLoader.load());
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
     }
-
 
 
 }

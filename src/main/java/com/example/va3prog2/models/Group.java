@@ -1,5 +1,7 @@
 package com.example.va3prog2.models;
 
+import javafx.scene.layout.GridPane;
+
 import java.util.ArrayList;
 import java.util.Date;
 
