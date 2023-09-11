@@ -8,51 +8,62 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-border-color: black;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.va3prog2.controllers.GiftController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-border-color: black;"
+            xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.va3prog2.controllers.GiftController">
     <children>
         <VBox prefHeight="400.0" prefWidth="192.0" spacing="20.0" style="-fx-border-color: black;">
             <children>
                 <Button fx:id="registerButton" mnemonicParsing="false" onAction="#loadRegister" prefHeight="33.0" prefWidth="198.0" text="Registrar Usuário" />
                 <Button fx:id="groupButton" mnemonicParsing="false" onAction="#loadGroups" prefHeight="33.0" prefWidth="198.0" text="Criar Grupo" />
                 <Button fx:id="giveawayButton" mnemonicParsing="false" onAction="#loadGiveaway" prefHeight="33.0" prefWidth="198.0" text="Realizar Sorteio" />
-                <Button fx:id="showusersButton" mnemonicParsing="false" onAction="#loadListUsers" prefHeight="33.0" prefWidth="198.0" text="Mostrar Usuários" />
+                <Button fx:id="showusersButton" mnemonicParsing="false" onAction="#loadListUsers" prefHeight="33.0" prefWidth="198.0" text="Presentes" />
             </children>
             <padding>
                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
             </padding>
         </VBox>
-        <Label layoutX="257.0" layoutY="141.0" text="Categoria:">
+        <Label layoutX="257.0" layoutY="141.0" text="Apelido: ">
             <font>
                 <Font size="13.0" />
             </font>
         </Label>
-        <Label layoutX="257.0" layoutY="171.0" text="Descrição:">
+        <Label layoutX="257.0" layoutY="171.0" text="Categoria:">
             <font>
                 <Font size="13.0" />
             </font>
         </Label>
-        <Label layoutX="258.0" layoutY="201.0" text="Preço(R$):">
+        <Label layoutX="257.0" layoutY="201.0" text="Descrição:">
             <font>
                 <Font size="13.0" />
             </font>
         </Label>
-        <TextField layoutX="331.0" layoutY="138.0">
+        <Label layoutX="258.0" layoutY="231.0" text="Preço(R$):">
+            <font>
+                <Font size="13.0" />
+            </font>
+        </Label>
+        <TextField fx:id="nicknameField" layoutX="331.0" layoutY="138.0">
             <opaqueInsets>
                 <Insets />
             </opaqueInsets>
         </TextField>
-        <TextField layoutX="331.0" layoutY="168.0">
+        <TextField fx:id="categoryField" layoutX="331.0" layoutY="168.0">
             <opaqueInsets>
                 <Insets />
             </opaqueInsets>
         </TextField>
-        <TextField layoutX="331.0" layoutY="198.0">
+        <TextField fx:id="descriptionField" layoutX="331.0" layoutY="198.0">
             <opaqueInsets>
                 <Insets />
             </opaqueInsets>
         </TextField>
-        <Button layoutX="494.0" layoutY="344.0" mnemonicParsing="false" text="Salvar" />
-        <Label alignment="CENTER" contentDisplay="CENTER" ellipsisString="" layoutX="264.0" layoutY="43.0" prefHeight="42.0" prefWidth="254.0" style="-fx-border-color: gray;" text="Preencha os campos abaixo para adicionar um presente." textAlignment="CENTER" wrapText="true">
+        <TextField fx:id="priceField" layoutX="331.0" layoutY="228.0">
+            <opaqueInsets>
+                <Insets />
+            </opaqueInsets>
+        </TextField>
+        <Button layoutX="494.0" layoutY="344.0" mnemonicParsing="false" onAction="#saveGift" text="Adicionar" />
+        <Label alignment="CENTER" contentDisplay="CENTER" ellipsisString="" layoutX="264.0" layoutY="43.0" prefHeight="42.0" prefWidth="254.0" text="Adicionar presente." textAlignment="CENTER" wrapText="true">
             <font>
                 <Font name="Arial Bold" size="15.0" />
             </font>

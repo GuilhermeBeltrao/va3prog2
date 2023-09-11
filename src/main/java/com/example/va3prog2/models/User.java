@@ -40,6 +40,12 @@ public class User {
     }
 
 
+    // Add a gift to the user's gift list
+    public void addGift(Gift gift) {
+        gifts.add(String.valueOf(gift));
+    }
+
+    // Get the user's gift list
     public ArrayList<String> getGifts() {
         return gifts;
     }

@@ -25,7 +25,7 @@
       <Label alignment="CENTER" layoutX="254.0" layoutY="163.0" prefHeight="25.0" prefWidth="100.0" text="Apelido:" />
       <Label alignment="CENTER" layoutX="254.0" layoutY="207.0" prefHeight="25.0" prefWidth="100.0" text="Senha:" />
       <Button fx:id="registrationButton" layoutX="320.0" layoutY="272.0" mnemonicParsing="false" onAction="#registerUser" text="Registrar Usuário" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="271.0" layoutY="35.0" prefHeight="43.0" prefWidth="252.0" style="-fx-border-color: gray;" text="Por favor, preencha os seguintes campos para registrar o usuário." textAlignment="CENTER" wrapText="true">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="271.0" layoutY="35.0" prefHeight="43.0" prefWidth="252.0"  text="Criar Usuario" textAlignment="CENTER" wrapText="true">
          <font>
             <Font name="Arial Bold" size="15.0" />
          </font>
@@ -35,7 +35,7 @@
             <Button fx:id="registerButton" mnemonicParsing="false" onAction="#loadRegister" prefHeight="33.0" prefWidth="198.0" text="Registrar Usuário" />
             <Button fx:id="groupButton" mnemonicParsing="false" onAction="#loadGroups" prefHeight="33.0" prefWidth="198.0" text="Criar Grupo" />
             <Button fx:id="giveawayButton" mnemonicParsing="false" onAction="#loadGiveaway" prefHeight="33.0" prefWidth="198.0" text="Realizar Sorteio" />
-            <Button fx:id="showusersButton" mnemonicParsing="false" onAction="#loadListUsers" prefHeight="33.0" prefWidth="198.0" text="Mostrar Usuários" />
+            <Button fx:id="showusersButton" mnemonicParsing="false" onAction="#loadListUsers" prefHeight="33.0" prefWidth="198.0" text="Presentes" />
          </children>
          <padding>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />

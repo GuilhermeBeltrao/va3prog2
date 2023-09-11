@@ -63,4 +63,13 @@ public class UsersRepository {
         }
         return userNames;
     }
+
+    public User getUserByPassword(String password) {
+        for (User user : userList) {
+            if (user.getPassword().equalsIgnoreCase(password)) {
+                return user;
+            }
+        }
+        return null; // User not found
+    }
 }

@@ -1,6 +1,7 @@
 package com.example.va3prog2.repositories;
 
 import com.example.va3prog2.models.Group;
+import com.example.va3prog2.models.SecretSantaAssignment;
 import com.example.va3prog2.models.User;
 
 import java.util.ArrayList;
@@ -50,7 +51,7 @@ public class GroupsRepository {
         }
     }
 
-    private Group findGroupByName(String selectedGroup) {
+    public Group findGroupByName(String selectedGroup) {
         for (Group group : groups) {
             if (group.getName().equals(selectedGroup)) {
                 return group;
@@ -66,4 +67,21 @@ public class GroupsRepository {
         }
         return groupNames;
     }
+
+
+    public List<SecretSantaAssignment> getAssignments(String groupName, String userPassword) {
+        List<SecretSantaAssignment> assignments = new ArrayList<>();
+
+        Group group = GroupsRepository.getInstance().findGroupByName(groupName);
+
+        if (group != null) {
+            for (User user : group.getUsers()) {
+                SecretSantaAssignment assignment = new SecretSantaAssignment(user, null); // Initialize with null receiver
+                assignments.add(assignment);
+            }
+        }
+
+        return assignments;
+    }
+
 }

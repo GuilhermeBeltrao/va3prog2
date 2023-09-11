@@ -4,6 +4,7 @@ import javafx.scene.layout.GridPane;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Group {
     private String name;
@@ -52,4 +53,15 @@ public class Group {
         this.sortedUsers = sortedUsers;
     }
 
+    public List<String> getGroupMembers() {
+        List<String> groupMembers = new ArrayList<>();
+        for (User user : users) {
+            groupMembers.add(user.getNickname());
+        }
+        return groupMembers;
+    }
+
+    public String getGiftExchangeDate() {
+        return date;
+    }
 }

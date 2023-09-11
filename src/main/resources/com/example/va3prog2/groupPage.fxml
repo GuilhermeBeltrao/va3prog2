@@ -27,7 +27,7 @@
                 <Button fx:id="registerButton" mnemonicParsing="false" onAction="#loadRegister" prefHeight="33.0" prefWidth="198.0" text="Registrar Usuário" />
                 <Button fx:id="groupButton" mnemonicParsing="false" onAction="#loadGroups" prefHeight="33.0" prefWidth="198.0" text="Criar Grupo" />
                 <Button fx:id="giveawayButton" mnemonicParsing="false" onAction="#loadGiveaway" prefHeight="33.0" prefWidth="198.0" text="Realizar Sorteio" />
-                <Button fx:id="showusersButton" mnemonicParsing="false" onAction="#loadListUsers" prefHeight="33.0" prefWidth="198.0" text="Mostrar Usuários" />
+                <Button fx:id="showusersButton" mnemonicParsing="false" onAction="#loadListUsers" prefHeight="33.0" prefWidth="198.0" text="Presentes" />
             </children>
             <padding>
                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -50,7 +50,7 @@
                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                     </rowConstraints>
                                     <children>
-                                        <Label contentDisplay="CENTER" text="Digite o nome do grupo:" textAlignment="CENTER" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
+                                        <Label contentDisplay="CENTER" text="Nome: " textAlignment="CENTER" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
                                             <GridPane.margin>
                                                 <Insets />
                                             </GridPane.margin>
@@ -58,7 +58,7 @@
                                                 <Font size="13.0" />
                                             </font>
                                         </Label>
-                                        <Label text="Escolha a data do sorteio:" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                        <Label text="Data do Sorteio: " GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                                             <font>
                                                 <Font size="13.0" />
                                             </font>
@@ -81,7 +81,7 @@
                         </AnchorPane>
                     </content>
                 </Tab>
-                <Tab closable="false" text="Usuários dos grupos">
+                <Tab closable="false" text="Gerenciar Usuarios">
                     <content>
                         <AnchorPane xmlns="http://javafx.com/javafx/17.0.2" xmlns:fx="http://javafx.com/fxml/1">
                             <VBox spacing="10" layoutX="20" layoutY="20">
