@@ -13,6 +13,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -21,85 +22,74 @@ import java.time.format.DateTimeParseException;
 import java.util.*;
 
 public class GiveawayController {
-    public ChoiceBox<String> groupChoiceBox;
+    public TextField groupNameTextField;
 
     public ChoiceBox<String> personChoiceBox;
 
-    public PasswordField passwordField;
 
     public void performGiftExchange(ActionEvent event) {
-        String selectedGroup = groupChoiceBox.getValue();
-        String selectedPerson = personChoiceBox.getValue();
-        String password = passwordField.getText();
+        String selectedGroup = groupNameTextField.getText();
 
-        if (selectedGroup != null && selectedPerson != null && !password.isEmpty()) {
-            // Check if the group is valid and the password is correct
+        if (selectedGroup != null) {
             Group group = GroupsRepository.getInstance().findGroupByName(selectedGroup);
-            if (group != null && UsersRepository.getInstance().getUserByPassword(password) != null) {
-                // Perform the gift exchange
-                List<SecretSantaAssignment> assignments = performGiftExchange(selectedGroup);
-
-                // Display the results
-                showGiftExchangeResults(assignments);
+            if (group != null) {
+                LocalDate giftExchangeDate = parseGiftExchangeDate(group.getGiftExchangeDate());
+                if (giftExchangeDate != null) {
+                    LocalDate currentDate = LocalDate.now();
+                    if (currentDate.isAfter(giftExchangeDate)) {
+                        List<SecretSantaAssignment> assignments = generateSecretSantaAssignments(group);
+                        showGiftExchangeResults(assignments);
+                    } else {
+                        showAlert("Gift Exchange Not Available", "The gift exchange date has not arrived yet.");
+                    }
+                } else {
+                    showAlert("Gift Exchange Date Error", "The gift exchange date is not in the correct format.");
+                }
             } else {
-                showAlert("Error", "Invalid group or password.");
+                showAlert("Error", "Invalid group.");
             }
         } else {
-            // Show an error message if any required field is not filled
-            showAlert("Error", "Please fill in all fields.");
+            showAlert("Error", "Invalid group.");
         }
-    }
-
-
-    public List<SecretSantaAssignment> performGiftExchange(String groupName) {
-        List<SecretSantaAssignment> giftExchange = new ArrayList<>();
-
-        Group group = GroupsRepository.getInstance().findGroupByName(groupName);
-
-        if (group != null) {
-            String giftExchangeDateString = group.getGiftExchangeDate();
-            try {
-                LocalDate giftExchangeDate = LocalDate.parse(giftExchangeDateString);
-                LocalDate currentDate = LocalDate.now();
-                if (currentDate.isAfter(giftExchangeDate)) {
-                    List<SecretSantaAssignment> assignments = performGiftExchange(groupName);
-                } else {
-                    showAlert("Gift Exchange Not Available", "The gift exchange date has not arrived yet.");
-                }
-            } catch (DateTimeParseException e) {
-                showAlert("Gift Exchange Date Error", "The gift exchange date is not in the correct format.");
-            }
-
-            List<User> members = new ArrayList<>(group.getUsers());
-            Collections.shuffle(members, new Random());
-
-            for (int i = 0; i < members.size(); i++) {
-                User giver = members.get(i);
-                User receiver = members.get((i + 1) % members.size()); // Ensure the last person does not give to the first
-                SecretSantaAssignment assignment = new SecretSantaAssignment(giver, receiver);
-                giftExchange.add(assignment);
-            }
-
-        }
-        return giftExchange;
     }
 
     private void showGiftExchangeResults(List<SecretSantaAssignment> assignments) {
-        System.out.println("Gift Exchange Results:");
-
+        StringBuilder message = new StringBuilder();
         for (SecretSantaAssignment assignment : assignments) {
-            User giver = assignment.getGiver();
-            User receiver = assignment.getReceiver();
-
-            System.out.println(giver.getNickname() + " is giving a gift to " + receiver.getNickname() + ":");
-
-            List<String> receiverGifts = receiver.getGifts();
-            for (String gift : receiverGifts) {
-                System.out.println("- " + gift);
-            }
-
-            System.out.println(); // Add an empty line to separate assignments
+            message.append(assignment.getGiver().getNickname())
+                    .append(" gives a gift to ")
+                    .append(assignment.getReceiver().getNickname())
+                    .append("\n");
         }
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Gift Exchange Results");
+        alert.setHeaderText(null);
+        alert.setContentText(message.toString());
+        alert.showAndWait();
+    }
+
+    private LocalDate parseGiftExchangeDate(String dateString) {
+        try {
+            return LocalDate.parse(dateString);
+        } catch (DateTimeParseException e) {
+            return null;
+        }
+    }
+
+    private List<SecretSantaAssignment> generateSecretSantaAssignments(Group group) {
+        List<SecretSantaAssignment> giftExchange = new ArrayList<>();
+        List<User> members = new ArrayList<>(group.getUsers());
+        Collections.shuffle(members, new Random());
+
+        for (int i = 0; i < members.size(); i++) {
+            User giver = members.get(i);
+            User receiver = members.get((i + 1) % members.size()); // Ensure the last person does not give to the first
+            SecretSantaAssignment assignment = new SecretSantaAssignment(giver, receiver);
+            giftExchange.add(assignment);
+        }
+
+        return giftExchange;
     }
 
 
@@ -116,6 +106,7 @@ public class GiveawayController {
 //        List<SecretSantaAssignment> assignments = GroupsRepository.getInstance().getAssignments(groupName, userPassword);
 //
 //        // Display the assignments to the user
+//        showGiftExchangeResults(assignments);
 //    }
 
 
