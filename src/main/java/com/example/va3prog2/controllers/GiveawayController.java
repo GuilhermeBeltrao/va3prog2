@@ -5,6 +5,7 @@ import com.example.va3prog2.models.Group;
 import com.example.va3prog2.models.SecretSantaAssignment;
 import com.example.va3prog2.models.User;
 import com.example.va3prog2.repositories.GroupsRepository;
+import com.example.va3prog2.repositories.SecretSantaAssignmentRepository;
 import com.example.va3prog2.repositories.UsersRepository;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -24,7 +25,12 @@ import java.util.*;
 public class GiveawayController {
     public TextField groupNameTextField;
 
-    public ChoiceBox<String> personChoiceBox;
+
+    public TextField groupTextField;
+    public TextField nicknameTextField;
+    public PasswordField passwordTextField;
+
+    private SecretSantaAssignmentRepository assignmentRepository = SecretSantaAssignmentRepository.getInstance();
 
 
     public void performGiftExchange(ActionEvent event) {
@@ -86,11 +92,48 @@ public class GiveawayController {
             User giver = members.get(i);
             User receiver = members.get((i + 1) % members.size()); // Ensure the last person does not give to the first
             SecretSantaAssignment assignment = new SecretSantaAssignment(giver, receiver);
+            assignmentRepository.addAssignment(assignment);
             giftExchange.add(assignment);
         }
 
         return giftExchange;
     }
+    public void consultSecretSantaAssignment(ActionEvent event) {
+        // Get the entered nickname
+        String nickname = nicknameTextField.getText();
+
+        // Find the user by nickname
+        User user = UsersRepository.getInstance().getUserByNickname(nickname);
+
+        if (user != null) {
+            // Find the secret Santa assignment for the user
+            SecretSantaAssignment assignment = assignmentRepository.getAssignmentForUser(user);
+
+            if (assignment != null) {
+                // Retrieve the receiver and their gifts
+                User receiver = assignment.getReceiver();
+                List<String> receiverGifts = receiver.getGifts();
+
+                if (receiverGifts != null) {
+                    // Create and display an alert with the gifts
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Secret Santa Assignment");
+                    alert.setHeaderText("Receiver: " + receiver.getNickname());
+                    alert.setContentText("Gifts received:\n" + String.join("\n", receiverGifts));
+                    alert.showAndWait();
+                } else {
+                    showAlert("Gifts Not Found", "No gifts found for the receiver.");
+                }
+            } else {
+                showAlert("Assignment Not Found", "No Secret Santa assignment found for this user.");
+            }
+        } else {
+            showAlert("User Not Found", "User with nickname '" + nickname + "' not found.");
+        }
+    }
+
+
+
 
 
     public void showAlert(String title, String message) {
@@ -101,13 +144,7 @@ public class GiveawayController {
         alert.showAndWait();
     }
 
-//    public void consultSecretSantaAssignments(String groupName, String userPassword) {
-//        // Retrieve Secret Santa assignments for the user using the repository
-//        List<SecretSantaAssignment> assignments = GroupsRepository.getInstance().getAssignments(groupName, userPassword);
-//
-//        // Display the assignments to the user
-//        showGiftExchangeResults(assignments);
-//    }
+
 
 
 

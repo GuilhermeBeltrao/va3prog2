@@ -64,4 +64,5 @@ public class Group {
     public String getGiftExchangeDate() {
         return date;
     }
+
 }

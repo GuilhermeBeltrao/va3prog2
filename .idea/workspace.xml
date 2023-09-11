@@ -5,8 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b012180e-5e06-4be5-ae6b-a88eb4ae548a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/va3prog2/repositories/SecretSantaAssignmentRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/va3prog2/controllers/GiveawayController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/va3prog2/controllers/GiveawayController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/va3prog2/models/Group.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/va3prog2/models/Group.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/va3prog2/models/SecretSantaAssignment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/va3prog2/models/SecretSantaAssignment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/va3prog2/repositories/GroupsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/va3prog2/repositories/GroupsRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/va3prog2/giveawayPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/va3prog2/giveawayPage.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -89,7 +93,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1694368360987</updated>
-      <workItem from="1694368362418" duration="24272000" />
+      <workItem from="1694368362418" duration="26290000" />
     </task>
     <servers />
   </component>

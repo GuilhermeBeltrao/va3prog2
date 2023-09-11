@@ -10,6 +10,8 @@ import java.util.List;
 public class GroupsRepository {
     private static GroupsRepository instance;
     private List<Group> groups;
+    private List<SecretSantaAssignment> secretSantaAssignments;
+
 
     public GroupsRepository() {
         groups = new ArrayList<>();
@@ -83,5 +85,17 @@ public class GroupsRepository {
 
         return assignments;
     }
+
+    public SecretSantaAssignment getAssignmentForUser(User user) {
+        if (this.secretSantaAssignments != null) {
+            for (SecretSantaAssignment assignment : this.secretSantaAssignments) {
+                if (assignment.getGiver().equals(user)) {
+                    return assignment;
+                }
+            }
+        }
+        return null; // Return null if assignments are not found or the list is null
+    }
+
 
 }
